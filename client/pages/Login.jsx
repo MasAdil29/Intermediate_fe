@@ -36,17 +36,17 @@ export default function Login() {
       
       {/* Login Form Container */}
       <div className="relative z-10 w-full max-w-md mx-4">
-        <div className="bg-chill-background/84 backdrop-blur-sm rounded-2xl p-10 border border-chill-border">
+        <div className="bg-chill-background/84 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-chill-border">
           {/* Logo */}
-          <div className="flex items-center justify-center gap-1 mb-9">
-            <Film className="w-12 h-12 text-white" />
-            <h1 className="font-londrina text-5xl text-white">CHILL</h1>
+          <div className="flex items-center justify-center gap-1 mb-6 md:mb-9">
+            <Film className="w-10 md:w-12 h-10 md:h-12 text-white" />
+            <h1 className="font-londrina text-4xl md:text-5xl text-white">CHILL</h1>
           </div>
 
           {/* Header */}
-          <div className="text-center mb-9">
-            <h2 className="text-white text-3xl font-bold font-lato mb-2">Masuk</h2>
-            <p className="text-white text-base font-lato">Selamat datang kembali!</p>
+          <div className="text-center mb-6 md:mb-9">
+            <h2 className="text-white text-2xl md:text-3xl font-bold font-lato mb-2">Masuk</h2>
+            <p className="text-white text-sm md:text-base font-lato">Selamat datang kembali!</p>
           </div>
 
           {/* Form */}
