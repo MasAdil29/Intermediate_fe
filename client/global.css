@@ -1,5 +1,7 @@
 /** @import must precede all other statements */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,6 +14,17 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
+    /* Chill app colors */
+    --chill-primary: 222.2 84% 31.8%; /* #0F1E93 */
+    --chill-secondary: 200 4% 76%; /* #C1C2C4 */
+    --chill-background: 217 18% 9%; /* #181A1C */
+    --chill-surface: 200 5% 25%; /* #3D4142 */
+    --chill-paper: 200 12% 13%; /* #22282A */
+    --chill-body: 180 5% 20%; /* #2F3334 */
+    --chill-disabled: 220 3% 63%; /* #9D9EA1 */
+    --chill-error: 2 79% 43%; /* #B71F1D */
+    --chill-border: 248 24% 23%; /* rgba(231, 227, 252, 0.23) */
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
