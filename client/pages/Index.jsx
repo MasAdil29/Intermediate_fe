@@ -25,17 +25,28 @@ export default function Index() {
           🎬 Chill App Setup Complete!
         </h1>
         <p className="text-chill-secondary mb-6 font-lato">
-          Your streaming app is ready. Visit the homepage to see the full experience.
+          Your streaming app is ready. Visit the homepage to see the full
+          experience.
         </p>
         <div className="space-y-2">
-          <p className="text-sm text-chill-disabled font-lato">Available routes:</p>
+          <p className="text-sm text-chill-disabled font-lato">
+            Available routes:
+          </p>
           <div className="flex flex-col gap-2 text-sm">
-            <a href="/" className="text-chill-primary hover:underline">/ - Homepage</a>
-            <a href="/login" className="text-chill-primary hover:underline">/login - Login Page</a>
-            <a href="/register" className="text-chill-primary hover:underline">/register - Register Page</a>
+            <a href="/" className="text-chill-primary hover:underline">
+              / - Homepage
+            </a>
+            <a href="/login" className="text-chill-primary hover:underline">
+              /login - Login Page
+            </a>
+            <a href="/register" className="text-chill-primary hover:underline">
+              /register - Register Page
+            </a>
           </div>
         </div>
-        <p className="mt-4 text-xs text-chill-disabled max-w-md">{exampleFromServer}</p>
+        <p className="mt-4 text-xs text-chill-disabled max-w-md">
+          {exampleFromServer}
+        </p>
       </div>
     </div>
   );

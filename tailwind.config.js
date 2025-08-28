@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'londrina': ['Londrina Solid', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif'],
+        londrina: ["Londrina Solid", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       colors: {
         // Chill app brand colors

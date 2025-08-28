@@ -9,18 +9,29 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1">
           <Film className="w-6 h-5 md:w-7 md:h-6 text-white" />
-          <span className="font-londrina text-2xl md:text-3xl text-white">CHILL</span>
+          <span className="font-londrina text-2xl md:text-3xl text-white">
+            CHILL
+          </span>
         </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-4 lg:gap-20">
-          <Link to="/series" className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors">
+          <Link
+            to="/series"
+            className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors"
+          >
             Series
           </Link>
-          <Link to="/film" className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors">
+          <Link
+            to="/film"
+            className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors"
+          >
             Film
           </Link>
-          <Link to="/my-list" className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors">
+          <Link
+            to="/my-list"
+            className="text-white text-base lg:text-lg font-medium font-lato hover:text-chill-secondary transition-colors"
+          >
             Daftar Saya
           </Link>
         </div>

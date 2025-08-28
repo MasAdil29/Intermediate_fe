@@ -8,13 +8,13 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -27,33 +27,42 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center relative">
       {/* Cinema Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url('https://api.builder.io/api/v1/image/assets/TEMP/33d5c2a37b5325d8c32eda6d07f06ba54573c00d?width=2880')`
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url('https://api.builder.io/api/v1/image/assets/TEMP/33d5c2a37b5325d8c32eda6d07f06ba54573c00d?width=2880')`,
         }}
       />
-      
+
       {/* Login Form Container */}
       <div className="relative z-10 w-full max-w-md mx-4">
         <div className="bg-chill-background/84 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-chill-border">
           {/* Logo */}
           <div className="flex items-center justify-center gap-1 mb-6 md:mb-9">
             <Film className="w-10 md:w-12 h-10 md:h-12 text-white" />
-            <h1 className="font-londrina text-4xl md:text-5xl text-white">CHILL</h1>
+            <h1 className="font-londrina text-4xl md:text-5xl text-white">
+              CHILL
+            </h1>
           </div>
 
           {/* Header */}
           <div className="text-center mb-6 md:mb-9">
-            <h2 className="text-white text-2xl md:text-3xl font-bold font-lato mb-2">Masuk</h2>
-            <p className="text-white text-sm md:text-base font-lato">Selamat datang kembali!</p>
+            <h2 className="text-white text-2xl md:text-3xl font-bold font-lato mb-2">
+              Masuk
+            </h2>
+            <p className="text-white text-sm md:text-base font-lato">
+              Selamat datang kembali!
+            </p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Username Field */}
             <div className="space-y-1.5">
-              <label htmlFor="username" className="text-white text-lg font-medium font-lato">
+              <label
+                htmlFor="username"
+                className="text-white text-lg font-medium font-lato"
+              >
                 Username
               </label>
               <Input
@@ -70,7 +79,10 @@ export default function Login() {
 
             {/* Password Field */}
             <div className="space-y-1.5">
-              <label htmlFor="password" className="text-white text-lg font-medium font-lato">
+              <label
+                htmlFor="password"
+                className="text-white text-lg font-medium font-lato"
+              >
                 Kata Sandi
               </label>
               <div className="relative">
@@ -102,13 +114,16 @@ export default function Login() {
                   Daftar
                 </Link>
               </p>
-              <Link to="/forgot-password" className="text-white hover:underline">
+              <Link
+                to="/forgot-password"
+                className="text-white hover:underline"
+              >
                 Lupa kata sandi?
               </Link>
             </div>
 
             {/* Login Button */}
-            <Button 
+            <Button
               type="submit"
               className="w-full h-12 rounded-3xl bg-chill-surface border border-chill-border text-white font-semibold text-base font-lato hover:bg-chill-surface/80 transition-colors"
             >
@@ -117,18 +132,20 @@ export default function Login() {
 
             {/* Divider */}
             <div className="text-center">
-              <span className="text-chill-disabled text-sm font-lato">Atau</span>
+              <span className="text-chill-disabled text-sm font-lato">
+                Atau
+              </span>
             </div>
 
             {/* Google Login Button */}
-            <Button 
+            <Button
               type="button"
               variant="outline"
               className="w-full h-12 rounded-3xl border-chill-border bg-transparent text-white font-semibold text-base font-lato hover:bg-white/10 transition-colors"
             >
-              <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/74148bc0b86fd5647f0aabd1b4b332034b023ac6?width=36" 
-                alt="Google" 
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/74148bc0b86fd5647f0aabd1b4b332034b023ac6?width=36"
+                alt="Google"
                 className="w-4.5 h-4.5 mr-5"
               />
               Masuk dengan Google
