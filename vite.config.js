@@ -19,8 +19,8 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.url, "./client"),
-      "@shared": path.resolve(import.meta.url, "./shared"),
+      "@": path.resolve("./client"),
+      "@shared": path.resolve("./shared"),
     },
   },
 }));
