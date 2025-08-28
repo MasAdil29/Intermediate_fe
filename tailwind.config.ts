@@ -13,7 +13,23 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'londrina': ['Londrina Solid', 'sans-serif'],
+        'lato': ['Lato', 'sans-serif'],
+      },
       colors: {
+        // Chill app brand colors
+        chill: {
+          primary: "hsl(var(--chill-primary))",
+          secondary: "hsl(var(--chill-secondary))",
+          background: "hsl(var(--chill-background))",
+          surface: "hsl(var(--chill-surface))",
+          paper: "hsl(var(--chill-paper))",
+          body: "hsl(var(--chill-body))",
+          disabled: "hsl(var(--chill-disabled))",
+          error: "hsl(var(--chill-error))",
+          border: "hsl(var(--chill-border))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
