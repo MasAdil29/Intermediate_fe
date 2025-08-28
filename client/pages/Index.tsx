@@ -20,42 +20,23 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
+    <div className="min-h-screen flex items-center justify-center bg-chill-background">
+      <div className="text-center max-w-lg">
+        <h1 className="text-3xl font-bold text-white mb-4 font-lato">
+          🎬 Chill App Setup Complete!
         </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
+        <p className="text-chill-secondary mb-6 font-lato">
+          Your streaming app is ready. Visit the homepage to see the full experience.
         </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
+        <div className="space-y-2">
+          <p className="text-sm text-chill-disabled font-lato">Available routes:</p>
+          <div className="flex flex-col gap-2 text-sm">
+            <a href="/" className="text-chill-primary hover:underline">/ - Homepage</a>
+            <a href="/login" className="text-chill-primary hover:underline">/login - Login Page</a>
+            <a href="/register" className="text-chill-primary hover:underline">/register - Register Page</a>
+          </div>
+        </div>
+        <p className="mt-4 text-xs text-chill-disabled max-w-md">{exampleFromServer}</p>
       </div>
     </div>
   );
