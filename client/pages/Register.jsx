@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Film } from "lucide-react";
+import { useUsers } from "@/context/UserContext.jsx";
+import { toast } from "@/hooks/use-toast";
+import UserList from "@/components/UserList.jsx";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const { register, users, removeUser } = useUsers();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -22,12 +27,17 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle registration logic here
     if (formData.password !== formData.confirmPassword) {
-      alert("Password tidak cocok!");
+      toast({ title: "Gagal daftar", description: "Password tidak cocok" });
       return;
     }
-    console.log("Registration attempt:", formData);
+    const res = register(formData.username, formData.password);
+    if (res.ok) {
+      toast({ title: "Pendaftaran berhasil", description: `Akun ${formData.username} dibuat` });
+      navigate("/login");
+    } else {
+      toast({ title: "Gagal daftar", description: res.message });
+    }
   };
 
   return (
@@ -184,6 +194,16 @@ export default function Register() {
               Daftar dengan Google
             </Button>
           </form>
+
+          {/* Users list and removal */}
+          <UserList users={users} onRemove={(u) => {
+            const res = removeUser(u);
+            if (res.ok) {
+              toast({ title: "Pengguna dihapus", description: u });
+            } else {
+              toast({ title: "Gagal menghapus", description: res.message });
+            }
+          }} />
         </div>
       </div>
     </div>
