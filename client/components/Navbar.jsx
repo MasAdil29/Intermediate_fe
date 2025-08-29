@@ -45,7 +45,9 @@ export default function Navbar() {
       <div className="flex items-center gap-3">
         {currentUser ? (
           <>
-            <span className="text-white font-lato hidden sm:inline">{currentUser.username}</span>
+            <span className="text-white font-lato hidden sm:inline">
+              {currentUser.username}
+            </span>
             <Button
               variant="outline"
               className="rounded-full border-chill-border text-white hover:bg-white/10"

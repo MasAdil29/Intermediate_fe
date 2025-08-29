@@ -33,7 +33,10 @@ export default function Register() {
     }
     const res = register(formData.username, formData.password);
     if (res.ok) {
-      toast({ title: "Pendaftaran berhasil", description: `Akun ${formData.username} dibuat` });
+      toast({
+        title: "Pendaftaran berhasil",
+        description: `Akun ${formData.username} dibuat`,
+      });
       navigate("/login");
     } else {
       toast({ title: "Gagal daftar", description: res.message });
@@ -196,14 +199,17 @@ export default function Register() {
           </form>
 
           {/* Users list and removal */}
-          <UserList users={users} onRemove={(u) => {
-            const res = removeUser(u);
-            if (res.ok) {
-              toast({ title: "Pengguna dihapus", description: u });
-            } else {
-              toast({ title: "Gagal menghapus", description: res.message });
-            }
-          }} />
+          <UserList
+            users={users}
+            onRemove={(u) => {
+              const res = removeUser(u);
+              if (res.ok) {
+                toast({ title: "Pengguna dihapus", description: u });
+              } else {
+                toast({ title: "Gagal menghapus", description: res.message });
+              }
+            }}
+          />
         </div>
       </div>
     </div>

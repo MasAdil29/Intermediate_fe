@@ -26,7 +26,10 @@ export default function Login() {
     e.preventDefault();
     const res = login(formData.username, formData.password);
     if (res.ok) {
-      toast({ title: "Berhasil masuk", description: `Selamat datang, ${formData.username}` });
+      toast({
+        title: "Berhasil masuk",
+        description: `Selamat datang, ${formData.username}`,
+      });
       navigate("/");
     } else {
       toast({ title: "Gagal masuk", description: res.message });

@@ -16,10 +16,15 @@ export default function UserList({ users, onRemove }) {
       </div>
       <ul className="divide-y divide-chill-border">
         {users.map((u) => (
-          <li key={u.username} className="flex items-center justify-between px-4 py-3">
+          <li
+            key={u.username}
+            className="flex items-center justify-between px-4 py-3"
+          >
             <div>
               <p className="text-white font-lato">{u.username}</p>
-              <p className="text-xs text-chill-secondary font-lato">Tersimpan di memori lokal</p>
+              <p className="text-xs text-chill-secondary font-lato">
+                Tersimpan di memori lokal
+              </p>
             </div>
             <Button
               variant="outline"
