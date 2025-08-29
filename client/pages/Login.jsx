@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Film } from "lucide-react";
+import { useUsers } from "@/context/UserContext.jsx";
+import { toast } from "@/hooks/use-toast";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { login } = useUsers();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -20,8 +24,13 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", formData);
+    const res = login(formData.username, formData.password);
+    if (res.ok) {
+      toast({ title: "Berhasil masuk", description: `Selamat datang, ${formData.username}` });
+      navigate("/");
+    } else {
+      toast({ title: "Gagal masuk", description: res.message });
+    }
   };
 
   return (
