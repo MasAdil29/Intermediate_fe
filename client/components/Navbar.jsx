@@ -1,7 +1,11 @@
-import { Film, ChevronDown } from "lucide-react";
+import { Film } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useUsers } from "@/context/UserContext.jsx";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
+  const { currentUser, logout } = useUsers();
+
   return (
     <nav className="flex justify-between items-center px-4 md:px-10 lg:px-20 py-6 bg-chill-background relative z-10">
       {/* Left side - Logo and Navigation */}
@@ -37,16 +41,34 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Right side - User Avatar */}
-      <div className="flex items-center gap-2">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face"
-            alt="User Avatar"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <ChevronDown className="w-7 h-7 text-white" />
+      {/* Right side - Auth */}
+      <div className="flex items-center gap-3">
+        {currentUser ? (
+          <>
+            <span className="text-white font-lato hidden sm:inline">{currentUser.username}</span>
+            <Button
+              variant="outline"
+              className="rounded-full border-chill-border text-white hover:bg-white/10"
+              onClick={logout}
+            >
+              Keluar
+            </Button>
+          </>
+        ) : (
+          <div className="flex items-center gap-3">
+            <Link
+              to="/login"
+              className="text-white text-base font-lato hover:text-chill-secondary transition-colors"
+            >
+              Masuk
+            </Link>
+            <Link to="/register">
+              <Button className="rounded-full bg-chill-primary hover:bg-chill-primary/90 text-white font-lato">
+                Daftar
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
