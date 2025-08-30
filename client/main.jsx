@@ -13,5 +13,5 @@ globalThis.__chill_root = root;
 root.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
 );

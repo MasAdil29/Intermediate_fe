@@ -1,4 +1,9 @@
-import { getCategory, addMovie, updateMovie, deleteMovie } from "@/lib/apiClient.js";
+import {
+  getCategory,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+} from "@/lib/apiClient.js";
 
 export async function getData(category) {
   const data = await getCategory(category);
