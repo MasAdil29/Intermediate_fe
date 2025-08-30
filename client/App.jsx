@@ -9,6 +9,7 @@ import Register from "./pages/Register.jsx";
 import Homepage from "./pages/Homepage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { UserProvider } from "@/context/UserContext.jsx";
+import MovieManager from "./pages/MovieManager.jsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/manage" element={<MovieManager />} />
               <Route path="/setup" element={<Index />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
