@@ -1,5 +1,10 @@
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
-import { addMovie, getMovies, updateMovie as apiUpdate, deleteMovie as apiDelete } from "@/lib/apiClient.js";
+import {
+  addMovie,
+  getMovies,
+  updateMovie as apiUpdate,
+  deleteMovie as apiDelete,
+} from "@/lib/apiClient.js";
 
 export function useMovies() {
   const queryClient = useQueryClient();
@@ -25,7 +30,8 @@ export function useMovies() {
       return { previous };
     },
     onError: (_err, _variables, context) => {
-      if (context?.previous) queryClient.setQueryData(["movies"], context.previous);
+      if (context?.previous)
+        queryClient.setQueryData(["movies"], context.previous);
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["movies"] });
@@ -40,13 +46,16 @@ export function useMovies() {
       if (previous && previous[category]) {
         queryClient.setQueryData(["movies"], {
           ...previous,
-          [category]: previous[category].map((m) => (m.id === id ? { ...m, ...patch } : m)),
+          [category]: previous[category].map((m) =>
+            m.id === id ? { ...m, ...patch } : m,
+          ),
         });
       }
       return { previous };
     },
     onError: (_err, _variables, context) => {
-      if (context?.previous) queryClient.setQueryData(["movies"], context.previous);
+      if (context?.previous)
+        queryClient.setQueryData(["movies"], context.previous);
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["movies"] });
@@ -67,7 +76,8 @@ export function useMovies() {
       return { previous };
     },
     onError: (_err, _variables, context) => {
-      if (context?.previous) queryClient.setQueryData(["movies"], context.previous);
+      if (context?.previous)
+        queryClient.setQueryData(["movies"], context.previous);
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["movies"] });
@@ -77,7 +87,8 @@ export function useMovies() {
   return {
     ...moviesQuery,
     addMovie: (category, item) => addMutation.mutate({ category, item }),
-    updateMovie: (category, id, patch) => updateMutation.mutate({ category, id, patch }),
+    updateMovie: (category, id, patch) =>
+      updateMutation.mutate({ category, id, patch }),
     deleteMovie: (category, id) => deleteMutation.mutate({ category, id }),
   };
 }

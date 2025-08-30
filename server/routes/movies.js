@@ -132,14 +132,16 @@ export function moviesRouter(app) {
   // List by category
   app.get("/api/movies/:category", (req, res) => {
     const list = getCategory(movies, req.params.category);
-    if (!list) return res.status(404).json({ message: "Kategori tidak ditemukan" });
+    if (!list)
+      return res.status(404).json({ message: "Kategori tidak ditemukan" });
     res.json(list);
   });
 
   // Single item
   app.get("/api/movies/:category/:id", (req, res) => {
     const list = getCategory(movies, req.params.category);
-    if (!list) return res.status(404).json({ message: "Kategori tidak ditemukan" });
+    if (!list)
+      return res.status(404).json({ message: "Kategori tidak ditemukan" });
     const item = list.find((m) => m.id === req.params.id);
     if (!item) return res.status(404).json({ message: "Item tidak ditemukan" });
     res.json(item);
@@ -150,8 +152,10 @@ export function moviesRouter(app) {
     const { category } = req.params;
     const item = req.body;
     const list = getCategory(movies, category);
-    if (!list) return res.status(404).json({ message: "Kategori tidak ditemukan" });
-    if (!item || typeof item !== "object") return res.status(400).json({ message: "Data tidak valid" });
+    if (!list)
+      return res.status(404).json({ message: "Kategori tidak ditemukan" });
+    if (!item || typeof item !== "object")
+      return res.status(400).json({ message: "Data tidak valid" });
     const created = { id: newId(), ...item };
     list.unshift(created);
     res.status(201).json(created);
@@ -162,9 +166,11 @@ export function moviesRouter(app) {
     const { category, id } = req.params;
     const patch = req.body ?? {};
     const list = getCategory(movies, category);
-    if (!list) return res.status(404).json({ message: "Kategori tidak ditemukan" });
+    if (!list)
+      return res.status(404).json({ message: "Kategori tidak ditemukan" });
     const idx = list.findIndex((m) => m.id === id);
-    if (idx === -1) return res.status(404).json({ message: "Item tidak ditemukan" });
+    if (idx === -1)
+      return res.status(404).json({ message: "Item tidak ditemukan" });
     const updated = { ...list[idx], ...patch, id };
     list[idx] = updated;
     res.json(updated);
@@ -174,12 +180,14 @@ export function moviesRouter(app) {
   app.delete("/api/movies/:category/:id", (req, res) => {
     const { category, id } = req.params;
     const list = getCategory(movies, category);
-    if (!list) return res.status(404).json({ message: "Kategori tidak ditemukan" });
+    if (!list)
+      return res.status(404).json({ message: "Kategori tidak ditemukan" });
     const before = list.length;
     const filtered = list.filter((m) => m.id !== id);
     movies[category] = filtered;
     const removed = Math.max(0, before - filtered.length);
-    if (removed === 0) return res.status(404).json({ message: "Item tidak ditemukan" });
+    if (removed === 0)
+      return res.status(404).json({ message: "Item tidak ditemukan" });
     res.json({ removed });
   });
 }
